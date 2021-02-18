@@ -9,20 +9,13 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
-                        <form class="user" method="post" action="<?= base_url('auth/registration') ?>; ">
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="exampleFirstName" name="nama anda" placeholder="Nama Anda" value="<?= set_value('nama anda'); ?>">
-
-                                    <?= form_error('nama anda', '<small class="text-danger pl-3">', '</small>'); ?>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="exampleLastName" name="no.hp" placeholder="No.Hp">value="<?= set_value('no.hp'); ?>">
-                                    <?= form_error('no.hp', '<small class="text-danger pl-3">', '</small>'); ?>
-                                </div>
+                        <form class="user" method="post" action="<?= base_url('auth/registration'); ?> ">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Full name" value="<?= set_value('nama'); ?>">
+                                <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" placeholder="Email">value="<?= set_value('email'); ?>">
+                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email" value="<?= set_value('email'); ?>">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group row">

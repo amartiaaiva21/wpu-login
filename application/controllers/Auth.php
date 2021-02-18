@@ -35,8 +35,7 @@ class Auth extends CI_Controller
 
     public function registration()
     {
-        $this->form_validation->set_rules('nama anda', 'Nama anda', 'required|trim');
-        $this->form_validation->set_rules('no.hp', 'No.Hp', 'required|trim');
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]', array());
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', array(
             'matches' => 'Password dont match!',
@@ -51,17 +50,17 @@ class Auth extends CI_Controller
             $this->load->view('templates/auth_footer');
         } else {
             $data = [
-                'nama' => $this->input->post('nama'),
-                'email' => $this->input->post('email'),
+                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'email' => htmlspecialchars($this->input->post('email', true)),
                 'image' => 'default.jpg',
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role.id' => 2,
                 'is_active' => 1,
                 'date_created' => time()
             ];
 
             $this->db->insert('user', $data);
-            $this->session->set_flashdata('masage', '<div class="alert
+            $this->session->set_flashdata('message', '<div class="alert
             alert-success" role="alert">Congratulation! your account has been creadted. Pleace Login</div');
             redirect('auth');
         }
