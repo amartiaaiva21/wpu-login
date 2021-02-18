@@ -15,7 +15,9 @@
                                     <h1 class="h4 text-gray-900 mb-4">Login Page</h1>
                                 </div>
 
-                                <?= $this->session->flashdata('massage') ?>
+								<!-- di controller session dengan nama message bukan massage
+								itu sebabnya notif tidak muncul-->
+                                <?= $this->session->flashdata('message') ?>
 
                                 <form class="user">
                                     <div class="form-group">
